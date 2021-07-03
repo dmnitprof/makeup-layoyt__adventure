@@ -1,0 +1,20 @@
+// variables
+@use "sass:math";
+
+$container-max-width: 1140px !default;
+// grid-gup
+$grid-gap: 1.5rem !default;
+// grid-gap-side
+$grid-gap-side: math.div($grid-gap , 2);
+$grid-columns: 12 !default;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+)!default;
+
+

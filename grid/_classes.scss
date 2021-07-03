@@ -1,0 +1,26 @@
+// container
+.container {
+  @include container;
+}
+
+// row
+.row {
+  @include row;
+}
+
+//col
+.col {
+  flex: 1 0 0;
+
+}
+
+// column generation
+@each $bp, $width in $grid-breakpoints {
+  @include media($width) {
+    @for $i from 1 through $grid-columns {
+      .col-#{$bp}-#{$i} {
+        @include col($i);
+      }
+    }
+  }
+}
