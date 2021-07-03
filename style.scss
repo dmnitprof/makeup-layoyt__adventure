@@ -1,82 +1,194 @@
 @import "./grid/init.scss";
-
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+/*======================================*/
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  overflow: hidden;
+  overflow: auto;
+  background: #000;
 }
-
+/*======================================*/
 .page {
   @include row;
   height: 100vh;
   width: 100vw;
   background: #000;
-  color: #fff;
-  .title {
-      text-transform: uppercase;
-  }
-  .link {
-    text-decoration: none;
-    color: white;
-  }
-  .text {
-    display: flex;
+  &__title {
+    font-family: 'Permanent Marker', serif;
+    font-size: 3rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #fff;
     text-align: center;
+    padding: 0 1rem 0 1rem;
+    margin-top: 3rem;
   }
-  .list {
-    list-style: none;
-    display: flex;
-  }
-  .item {
-    margin-right: 1rem;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
- .content {
-   @include col(6);
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   align-items: center;
-   .header {
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     .logo {
-       max-width: 1rem;
-       max-height: 1rem;
-       text-align: center;
-     }
+  &__text {
+    color: #fff;
+    text-align: center;
+    margin: 2rem 0 2rem 0;
 
-   }
-
-    .explore {
-      background-image: url("./images/explore.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      text-align: center;
-      .link{
-        color: black;
-      }
-    }
   }
-  &__bg {
-    @include col(6);
-    height: 100vh;
-    background-image: url("./images/main_img.png");
+  &__explore {
+    width: 100%;
+    background-image: url("./images/explore.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     text-align: center;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    &:hover {
+      background: transparent;
+      .page__link{
+        color: brown;
+      }
+    }
+
+
+  }
+  &__link {
+    font-family: 'Open Sans', serif;
+    letter-spacing: 0.01em;
+    color: #000;
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+}
+/*======================================*/
+.content {
+  height: 100%;
+  @include col(12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  @include bp(md){
+    @include col(6);
+  }
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &:hover .hr {
+      background: brown;
+    }
+
+    &__logo {
+      width: 2rem;
+    }
+
+    &__link {
+      color: #fff;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      margin-right: -1rem;
+      margin-left: 1rem;
+      &__list {
+        display: flex;
+        padding: 0 2rem .5rem 1rem;
+      }
+
+      &__item {
+        margin-right: 2.5rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      &__link {
+
+      }
+
+      &__hr {
+        height: 2px;
+        border: none;
+        background: #fff;
+        width: 100%;
+      }
+    }
   }
 
+  .social {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
 
+    &__list {
+      display: flex;
+      margin-bottom: 1rem;
 
+    }
+
+    &__item {
+      margin-right: 1rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &__link {
+      color: #fff;
+    }
+
+    &__img {
+      border-radius: 50%;
+      max-width: 2rem;
+      max-height: 2rem;
+      outline: none;
+      &:hover{
+        background: brown;
+      }
+    }
+
+  }
 
 }
+.bg {
+  height: 100%;
+  @include col(12);
+  background-image: url("./images/main_img.png");
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  @include bp(md){
+    @include col(6);
+  }
+}
+
+/*========================================*/
+.link {
+  text-decoration: none;
+  &:hover {
+    color: brown;
+  }
+}
+
+.list {
+  list-style: none;
+}
+
+.item {
+
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+/*========================================*/
 
